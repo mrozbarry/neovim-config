@@ -1,0 +1,7 @@
+require('options')
+require('plugins')
+require('colorscheme')
+require('lsp')
+require('filesystem')
+require('keymaps.splits')
+require('keymaps.fuzzy')
