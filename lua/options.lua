@@ -26,3 +26,8 @@ vim.opt.smartcase = true            -- but make it case sensitive if an uppercas
 
 -- Leader
 vim.g.mapleader = ','
+
+-- Wordwrap
+vim.wo.wrap = false
+vim.wo.linebreak = false 
+vim.wo.list = false
