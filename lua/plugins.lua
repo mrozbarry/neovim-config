@@ -47,12 +47,21 @@ return require('packer').startup(function(use)
     use { 'williamboman/mason-lspconfig.nvim'}
     use { 'neovim/nvim-lspconfig' }
     use { 'hrsh7th/nvim-cmp', config = [[require('config.nvim-cmp')]] }
-    use { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' } 
+    use { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' }
     use { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }        -- buffer auto-completion
     use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }          -- path auto-completion
     use { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }       -- cmdline auto-completion
-    use 'L3MON4D3/LuaSnip'
-    use 'saadparwaiz1/cmp_luasnip'
+    use({
+      'L3MON4D3/LuaSnip',
+      tag = "v2.*",
+      run = "make install_jsregexp",
+      config = function() require('config.snippets') end,
+    })
+    --use 'saadparwaiz1/cmp_luasnip'
+    use {
+      'weilbith/nvim-code-action-menu',
+      cmd = 'CodeActionMenu',
+    }
 
     -- file tree
     use {
@@ -69,13 +78,13 @@ return require('packer').startup(function(use)
     use { "nvim-focus/focus.nvim", config = function() require("focus").setup() end }
 
     -- treesitter
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
-    }
+    -- use {
+    --     'nvim-treesitter/nvim-treesitter',
+    --     run = function()
+    --         local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+    --         ts_update()
+    --     end,
+    -- }
 
     -- fuzzy find
     use {

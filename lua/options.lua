@@ -8,6 +8,9 @@ vim.opt.tabstop = 2                 -- number of visual spaces per TAB
 vim.opt.softtabstop = 2             -- number of spaces in tab when editing
 vim.opt.shiftwidth = 2              -- insert N spaces on a tab
 vim.opt.expandtab = true            -- tabs are spaces, mainly because of python
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+vim.opt.cursorline = true
 
 -- UI config
 vim.opt.number = true               -- show absolute number

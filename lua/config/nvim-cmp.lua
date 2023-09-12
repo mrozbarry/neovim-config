@@ -11,7 +11,11 @@ cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+          local luasnip = require('luasnip')
+          if not luasnip then
+            return
+          end
+          luasnip.lsp_expand(args.body)
         end,
     },
     mapping = cmp.mapping.preset.insert({
@@ -26,7 +30,7 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
         -- A super tab
-        -- sourc: https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip
+        -- source: https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip
         ["<Tab>"] = cmp.mapping(function(fallback)
             -- Hint: if the completion menu is visible select next one
             if cmp.visible() then
@@ -74,7 +78,7 @@ cmp.setup({
       { name = 'nvim_lsp' },    -- For nvim-lsp
       { name = 'luasnip' },     -- For luasnip user
       { name = 'buffer' },      -- For buffer word completion
-      { name = 'path' },        -- For path completion
+      -- { name = 'path' },        -- For path completion
   })
 })
 

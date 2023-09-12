@@ -1,0 +1,39 @@
+snippet @test "phpunit test"
+/**
+ * @test
+ */
+public function it${1:DoesAThing}(): void
+{
+    ${2}
+}
+
+snippet pubf
+public function ${1}($2}: ${3:void}
+{
+    ${4}
+}
+
+snippet prof
+protected function ${1}($2}: ${3:void}
+{
+    ${4}
+}
+
+snippet prif
+private function ${1}($2}: ${3:void}
+{
+    ${4}
+}
+
+
+snippet pubsf
+public static function ${1}($2}: ${3:void}
+{
+    ${4}
+}
+
+snippet class
+class ${1}
+{
+    ${2}
+}
