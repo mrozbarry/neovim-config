@@ -1,39 +1,74 @@
-snippet @test "phpunit test"
-/**
- * @test
- */
-public function it${1:DoesAThing}(): void
-{
-    ${2}
-}
+snippet <?
+  <?php
+  
+  namespace App\${1};
+
+snippet @test
+  /**
+   * @test
+   */
+  public function it${1:DoesAThing}(): void
+  {
+      ${2}
+  }
 
 snippet pubf
-public function ${1}($2}: ${3:void}
-{
-    ${4}
-}
+  public function ${1}($2): ${3:void}
+  {
+      ${4}
+  }
 
 snippet prof
-protected function ${1}($2}: ${3:void}
-{
-    ${4}
-}
+  protected function ${1}($2): ${3:void}
+  {
+      ${4}
+  }
 
 snippet prif
-private function ${1}($2}: ${3:void}
-{
-    ${4}
-}
+  private function ${1}($2): ${3:void}
+  {
+      ${4}
+  }
 
 
 snippet pubsf
-public static function ${1}($2}: ${3:void}
-{
-    ${4}
-}
+  public static function ${1}($2): ${3:void}
+  {
+      ${4}
+  }
 
 snippet class
-class ${1}
-{
-    ${2}
-}
+  class ${1}
+  {
+      ${2}
+  }
+
+snippet __inv
+  public function __invoke(): ${1}
+  {
+      ${2}
+  }
+
+snippet __con
+  public function __construct(${1})
+  {
+      ${2}
+  }
+
+snippet invokable
+  class ${1}
+  {
+    public function __invoke(${2}): ${3}
+    {
+      return ${4}
+    }
+  }
+
+snippet test
+  class ${1} extends Tests\TestCase
+  {
+      /** @test */
+      public function it${2:RunsSuccessfully}(): void
+      {
+      }
+  }

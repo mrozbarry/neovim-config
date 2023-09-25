@@ -21,7 +21,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
   --
-  -- 'nvim-tree/nvim-web-devicons',
+  'nvim-tree/nvim-web-devicons',
 
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -30,12 +30,25 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
+  {
+    "chrisgrieser/nvim-early-retirement",
+    config = true,
+    event = "VeryLazy",
+    opts = {
+      retirementAgeMins = 20,
+      minimumBufferNum = 1,
+      ignoreUnsavedChangesBufs = true,
+    },
+  },
+
   { import = 'plugins.lsp' },
   { import = 'plugins.completion' },
   { import = 'plugins.theme' },
+  { import = 'plugins.neotree' },
+  { import = 'plugins.testing' },
 
 
-  -- Useful plugin to show you pending keybinds.
+  -- -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
@@ -226,7 +239,7 @@ require('nvim-treesitter.configs').setup {
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
 
-  highlight = { enable = true },
+  highlight = { enable = false },
   indent = { enable = true },
   incremental_selection = {
     enable = false,
@@ -332,10 +345,6 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
-
-  if client.server_capabilities.documentSymbolProvider then
-    require("nvim-navic").attach(client, bufnr)
-  end
 end
 
 -- Enable the following language servers
@@ -436,6 +445,9 @@ cmp.setup {
 }
 
 require('keymaps.splits')
+require('keymaps.neotree')
+require('keymaps.neotest')
+require('config.theme')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
