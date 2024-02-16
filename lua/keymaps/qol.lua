@@ -5,3 +5,5 @@ local opts = {
 }
 
 vim.keymap.set('n', '<Esc>', '<Esc>:noh<CR>', opts)
+
+vim.keymap.set('n', '<leader>ca', require('actions-preview').code_actions)

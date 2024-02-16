@@ -17,10 +17,10 @@ local opts = {
 
 -- Resize with arrows
 -- delta: 2 lines
-vim.keymap.set('n', '<C-Up>', ':resize -2<CR>', opts)
-vim.keymap.set('n', '<C-Down>', ':resize +2<CR>', opts)
-vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', opts)
-vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
+vim.keymap.set('n', '<C-L>', ':resize -2<CR>', opts)
+vim.keymap.set('n', '<C-H>', ':resize +2<CR>', opts)
+vim.keymap.set('n', '<C-K>', ':vertical resize -2<CR>', opts)
+vim.keymap.set('n', '<C-L>', ':vertical resize +2<CR>', opts)
 
 vim.api.nvim_set_keymap('n', '<C-h>', ':FocusSplitLeft<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', ':FocusSplitDown<CR>', { silent = true })
