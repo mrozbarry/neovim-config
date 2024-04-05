@@ -42,7 +42,8 @@ require('lazy').setup({
   { import = 'plugins.lsp' },
   { import = 'plugins.completion' },
   { import = 'plugins.theme' },
-  { import = 'plugins.neotree' },
+  -- { import = 'plugins.neotree' },
+  { import = 'plugins.oil' },
   { import = 'plugins.testing' },
 
 
@@ -458,6 +459,7 @@ require('keymaps.neotree')
 require('keymaps.splits')
 require('keymaps.qol')
 require('config.theme')
+require('config.oil')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
