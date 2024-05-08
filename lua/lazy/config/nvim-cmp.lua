@@ -1,4 +1,3 @@
-local luasnip = require("luasnip")
 local cmp = require("cmp")
 
 cmp.setup({
@@ -28,3 +27,4 @@ cmp.setup({
         -- { name = 'path' },        -- For path completion
     })
 })
+
